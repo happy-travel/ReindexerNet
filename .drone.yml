@@ -10,7 +10,7 @@ name: Nuget packages
         
 trigger:
   branch:
-    - main
+    - master
   event:
     - push
     
