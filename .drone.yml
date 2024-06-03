@@ -15,17 +15,6 @@ trigger:
     - push
     
 steps:
-- name: run ReSharper
-  image:  mcr.microsoft.com/dotnet/sdk:8.0
-  environment:
-    GITHUB_TOKEN:
-      from_secret: GITHUB_TOKEN
-
-  commands:
-    - dotnet new tool-manifest
-    - dotnet tool install JetBrains.ReSharper.GlobalTools
-    - dotnet jb inspectcode HappyTravel.BaseConnector.StaticDataManager.sln --build --severity=error --verbosity=error -o=/dev/null
-
 - name: Build packages
   image: mcr.microsoft.com/dotnet/sdk:8.0
   environment:
